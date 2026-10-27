@@ -2712,6 +2712,8 @@ export const outboundTimeoutsSchema = z.object({
   moderationMs: outboundTimeoutMs,
   /** Fetching a stored image by URL to encode it for a provider. */
   imageFetchMs: outboundTimeoutMs,
+  /** Each `image_gen_oai` generation request. */
+  imageGenMs: outboundTimeoutMs,
 });
 
 export type TOutboundTimeouts = z.infer<typeof outboundTimeoutsSchema>;
@@ -3854,6 +3856,7 @@ export const webSearchSchema = z.object({
   scraperProvider: z.nativeEnum(ScraperProviders).optional(),
   rerankerType: z.nativeEnum(RerankerTypes).optional(),
   scraperTimeout: z.number().int().nonnegative().optional(),
+  rerankerTimeout: z.number().int().nonnegative().optional(),
   safeSearch: z.nativeEnum(SafeSearchTypes).default(SafeSearchTypes.MODERATE),
   firecrawlOptions: z
     .object({

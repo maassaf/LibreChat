@@ -556,6 +556,7 @@ registration:
 #   actionsMs: 300000 # each action (OpenAPI tool) HTTP call
 #   moderationMs: 10000 # the OpenAI moderation check before a chat turn
 #   imageFetchMs: 30000 # fetching a stored image to encode it for a provider
+#   imageGenMs: 600000 # each image_gen_oai generation request
 
 # rateLimits:
 #   # Per-user MCP App browser-route limits. Each limit uses a fixed one-minute window.
@@ -1538,6 +1539,8 @@ endpoints:
 #   jinaApiUrl: '${JINA_API_URL}'  # Custom Jina API URL (optional, defaults to https://api.jina.ai/v1/rerank)
 #   # Other rerankers
 #   cohereApiKey: '${COHERE_API_KEY}'
+#   # Rerank request timeout in milliseconds, applied per page (default: 10000)
+#   rerankerTimeout: 10000
 #   # Search providers
 #   serperApiKey: '${SERPER_API_KEY}'
 #   searxngInstanceUrl: '${SEARXNG_INSTANCE_URL}'
